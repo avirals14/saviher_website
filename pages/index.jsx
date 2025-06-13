@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import MobileNav from '../components/MobileNav';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaBell, FaUsers, FaCamera, FaMapMarkerAlt, FaMobileAlt, FaArrowRight, FaReact, FaPython, FaAndroid, FaApple } from 'react-icons/fa';
+import { FaShieldAlt, FaBell, FaUsers, FaCamera, FaMapMarkerAlt, FaMobileAlt, FaArrowRight, FaReact, FaPython, FaAndroid, FaApple, FaServer } from 'react-icons/fa';
 import { SiFlutter } from 'react-icons/si';
 import Link from 'next/link';
 
@@ -107,7 +107,12 @@ export default function Home() {
             >
               Experience the next generation of personal safety. One tap to alert trusted contacts, shake to trigger SOS, and connect with a community of verified helpers.
             </motion.p>
-            <motion.div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.div
+              className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            >
               <motion.a 
                 href="/download" 
                 className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-primary-500/50"
@@ -125,7 +130,7 @@ export default function Home() {
                 Learn More
               </motion.a>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="mt-12 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -255,16 +260,25 @@ export default function Home() {
               </motion.div>
 
               <motion.div 
-                className="md:col-span-2 p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 hover:border-secondary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
+                className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 hover:border-secondary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
+                whileHover={{ y: -5 }}
+              >
+                <FaUsers className="text-secondary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white group-hover:text-secondary-300 transition-colors duration-300">Community Support</h3>
+                <p className="text-gray-200 mt-1">Connect with verified helpers in your vicinity.</p>
+              </motion.div>
+
+              <motion.div 
+                className="md:col-span-2 p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 flex flex-col justify-between hover:border-primary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
                 whileHover={{ y: -5 }}
               >
                 <div>
-                  <FaUsers className="text-secondary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="text-2xl font-bold text-white group-hover:text-secondary-300 transition-colors duration-300">Community Help</h3>
-                  <p className="text-gray-200 mt-2">Alert nearby verified volunteers from the SaviHer community to get help even faster. Power in numbers.</p>
+                  <FaShieldAlt className="text-primary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300">Privacy & Security</h3>
+                  <p className="text-gray-200 mt-2">Your data is encrypted and your privacy is our priority. Feel safe knowing your information is protected.</p>
                 </div>
-                <div className="mt-4 text-secondary-400 font-semibold hover:text-secondary-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
-                  Join the Network <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <div className="mt-4 text-primary-400 font-semibold hover:text-primary-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
+                  Learn More <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -341,20 +355,17 @@ export default function Home() {
                 <FaApple className="text-5xl text-gray-400" />
                 <span className="text-lg font-medium">iOS</span>
               </motion.div>
+              <motion.div
+                className="flex flex-col items-center gap-4 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <FaServer className="text-5xl text-teal-500" />
+                <span className="text-lg font-medium">Backend</span>
+              </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-center mt-12"
-            >
-              <p className="text-gray-200 text-lg max-w-2xl mx-auto">
-                Built with Flutter for seamless performance across both Android and iOS platforms, 
-                ensuring a consistent and reliable experience for all users.
-              </p>
-            </motion.div>
           </div>
         </section>
 
