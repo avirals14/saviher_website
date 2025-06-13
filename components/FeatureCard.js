@@ -1,32 +1,25 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
-const FeatureCard = ({ icon: Icon, title, description, delay = 0 }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
+const FeatureCard = ({ title, description, icon: Icon, delay = 0 }) => {
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, delay }}
-      className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay }}
+      className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-100 hover:border-primary-200"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
       
       <div className="relative">
-        <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-          <Icon className="w-6 h-6 text-primary-500" />
+        <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
+          {Icon && <Icon className="w-6 h-6 text-primary-600" />}
         </div>
         
-        <h3 className="text-xl font-display font-semibold text-gray-900 mb-2">
+        <h3 className="text-xl font-semibold text-neutral-800 mb-2 group-hover:text-primary-600 transition-colors duration-300">
           {title}
         </h3>
         
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-neutral-600 leading-relaxed">
           {description}
         </p>
       </div>

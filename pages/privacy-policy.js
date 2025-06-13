@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import Navbar from '../components/Navbar';
 
 const sections = [
   {
@@ -71,6 +72,8 @@ export default function PrivacyPolicy() {
         <title>Privacy Policy - SaviHer</title>
         <meta name="description" content="Learn about how SaviHer protects your privacy and handles your data." />
       </Head>
+
+      <Navbar />
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-b from-primary-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

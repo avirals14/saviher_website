@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
 
@@ -28,19 +29,33 @@ function MyApp({ Component, pageProps }) {
   }, [router]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div data-theme="saviher" className="flex flex-col min-h-screen bg-base-100">
       {loading && (
-        <div className="fixed inset-0 bg-white bg-opacity-80 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-base-100 bg-opacity-80 backdrop-blur-sm z-50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
-            <p className="text-gray-600 font-medium">Loading...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            <p className="text-base-content font-medium">Loading...</p>
           </div>
         </div>
       )}
-      <Component {...pageProps} />
+      <Navbar />
+      <main className="flex-grow">
+        <Component {...pageProps} />
+      </main>
       <Footer />
     </div>
   );
 }
+
+// Add getInitialProps to handle static optimization
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {};
+  
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+  
+  return { pageProps };
+};
 
 export default MyApp; 

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import Navbar from '../components/Navbar';
 
 const sections = [
   {
@@ -70,6 +71,8 @@ export default function Terms() {
         <title>Terms of Service - SaviHer</title>
         <meta name="description" content="Read SaviHer's terms of service and user agreement." />
       </Head>
+
+      <Navbar />
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-b from-primary-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
