@@ -17,7 +17,19 @@ export default function Home() {
       <Head>
         <title>SaviHer - Feel Fun, Feel Safe</title>
         <meta name="description" content="SaviHer - Your personal safety companion" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logos/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logos/logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logos/logo.png" />
+        <link rel="mask-icon" href="/images/logos/logo.png" color="#5bbad5" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta property="og:title" content="SaviHer - Feel Fun, Feel Safe" />
+        <meta property="og:description" content="SaviHer - Your personal safety companion" />
+        <meta property="og:image" content="/images/logos/logo.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SaviHer - Feel Fun, Feel Safe" />
+        <meta name="twitter:description" content="SaviHer - Your personal safety companion" />
+        <meta name="twitter:image" content="/images/logos/logo.png" />
       </Head>
 
       <Navbar />
@@ -39,6 +51,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent z-0"></div>
           
           <div className="z-20">
+            <div className="mb-8 -mt-12">
+              <Image
+                src="/images/logos/logo.png"
+                alt="SaviHer Logo"
+                width={200}
+                height={67}
+                className="mx-auto"
+                priority
+              />
+            </div>
             <motion.h1 
               className="text-5xl md:text-7xl font-black uppercase text-white drop-shadow-lg"
             >
@@ -171,7 +193,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-primary-900/80 to-secondary-900/80 backdrop-blur-md relative">
+        <section className="py-20 bg-gradient-to-br from-pink-600/80 to-rose-800/80 backdrop-blur-md relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent"></div>
           <div className="container mx-auto px-6 text-center relative">
             <motion.div

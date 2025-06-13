@@ -84,7 +84,7 @@ export default function Features() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-primary-900/80 to-secondary-900/80 backdrop-blur-md relative">
+        <section className="py-20 bg-gradient-to-br from-pink-600/80 to-rose-800/80 backdrop-blur-md relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent"></div>
           <div className="container mx-auto px-6 text-center relative">
             <motion.div

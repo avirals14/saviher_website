@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { Menu, X, ChevronDown, Download } from 'lucide-react';
 
 const mainNavItems = [
+  { name: 'Home', href: '/' },
   { name: 'Features', href: '/features' },
   { name: 'About', href: '/about' },
   { name: 'Resources', href: '/resources' },

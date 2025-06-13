@@ -152,7 +152,7 @@ export default function Download() {
               </p>
               
               {/* App Store Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 sm:mb-16">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 sm:mb-16 max-w-2xl mx-auto">
                 {appStores.map((store, index) => (
                   <AppStoreItem key={index} store={store} />
                 ))}
