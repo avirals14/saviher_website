@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar';
 import MobileNav from '../components/MobileNav';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaBell, FaUsers, FaCamera, FaMapMarkerAlt, FaMobileAlt } from 'react-icons/fa';
+import { FaShieldAlt, FaBell, FaUsers, FaCamera, FaMapMarkerAlt, FaMobileAlt, FaArrowRight, FaReact, FaPython, FaAndroid, FaApple } from 'react-icons/fa';
+import { SiFlutter } from 'react-icons/si';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,23 +13,54 @@ export default function Home() {
     visible: { opacity: 1 }
   };
 
+  const steps = [
+    {
+      icon: <FaMobileAlt className="text-4xl text-primary-400" />,
+      title: "Download & Setup",
+      description: "Get the app from App Store or Google Play Store"
+    },
+    {
+      icon: <FaUsers className="text-4xl text-secondary-400" />,
+      title: "Add Trusted Contacts",
+      description: "Connect with friends and family for instant alerts"
+    },
+    {
+      icon: <FaShieldAlt className="text-4xl text-accent-400" />,
+      title: "Start Using",
+      description: "Enable features and customize your safety settings"
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "SaviHer gives me peace of mind when walking home late at night. The instant alert system is a game-changer.",
+      author: "Sarah M.",
+      role: "College Student"
+    },
+    {
+      quote: "As a working professional, I feel much safer knowing help is just a shake away. The community feature is amazing!",
+      author: "Priya K.",
+      role: "Software Engineer"
+    }
+  ];
+
   return (
     <>
       <Head>
         <title>SaviHer - Feel Fun, Feel Safe</title>
-        <meta name="description" content="SaviHer - Your personal safety companion" />
+        <meta name="description" content="SaviHer - Your personal safety companion. Experience the next generation of personal safety with instant alerts, community support, and smart features." />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/logos/logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/logos/logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/logos/logo.png" />
         <link rel="mask-icon" href="/images/logos/logo.png" color="#5bbad5" />
         <meta name="theme-color" content="#ffffff" />
         <meta property="og:title" content="SaviHer - Feel Fun, Feel Safe" />
-        <meta property="og:description" content="SaviHer - Your personal safety companion" />
+        <meta property="og:description" content="SaviHer - Your personal safety companion. Experience the next generation of personal safety with instant alerts, community support, and smart features." />
         <meta property="og:image" content="/images/logos/logo.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="SaviHer - Feel Fun, Feel Safe" />
-        <meta name="twitter:description" content="SaviHer - Your personal safety companion" />
+        <meta name="twitter:description" content="SaviHer - Your personal safety companion. Experience the next generation of personal safety with instant alerts, community support, and smart features." />
         <meta name="twitter:image" content="/images/logos/logo.png" />
       </Head>
 
@@ -51,7 +83,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent z-0"></div>
           
           <div className="z-20">
-            <div className="mb-8 -mt-12">
+            <div className="mb-8 mt-12">
               <Image
                 src="/images/logos/logo.png"
                 alt="SaviHer Logo"
@@ -73,9 +105,9 @@ export default function Home() {
             <motion.p 
               className="mt-4 text-lg text-gray-100 max-w-xl mx-auto drop-shadow-md"
             >
-              Experience the next generation of personal safety. SaviHer combines powerful protection with a design you'll love to use.
+              Experience the next generation of personal safety. One tap to alert trusted contacts, shake to trigger SOS, and connect with a community of verified helpers.
             </motion.p>
-            <motion.div className="mt-8">
+            <motion.div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.a 
                 href="/download" 
                 className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-primary-500/50"
@@ -84,9 +116,95 @@ export default function Home() {
               >
                 Get Started
               </motion.a>
+              <motion.a 
+                href="#features" 
+                className="text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Learn More
+              </motion.a>
+            </motion.div>
+            <motion.div 
+              className="mt-12 relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="relative w-full max-w-4xl mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 blur-3xl rounded-full animate-pulse"></div>
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    className="relative group"
+                    whileHover={{ scale: 1.05, rotate: 0 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-secondary-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <Image
+                      src="/images/app-screenshots/screen-1.jpg"
+                      alt="SaviHer App Interface - Home Screen"
+                      width={300}
+                      height={600}
+                      className="rounded-2xl shadow-2xl transform -rotate-6 group-hover:rotate-0 transition-all duration-500 cursor-pointer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
+                      <p className="text-white text-sm font-medium">Features Overview</p>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+                    className="relative group"
+                    whileHover={{ scale: 1.05, rotate: 0 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary-500/30 to-primary-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <Image
+                      src="/images/app-screenshots/screen-2.jpg"
+                      alt="SaviHer App Interface - Features"
+                      width={300}
+                      height={600}
+                      className="rounded-2xl shadow-2xl transform rotate-6 group-hover:rotate-0 transition-all duration-500 cursor-pointer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
+                      <p className="text-white text-sm font-medium">Home Screen</p>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.section>
+
+        {/* How It Works Section */}
+        <section className="py-24 bg-gray-950 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary-900/10 via-transparent to-transparent"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white drop-shadow-md">How It Works</h2>
+              <p className="text-gray-200 mt-2">Three simple steps to start feeling safer</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center p-6 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <div className="mb-4">{step.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Features Bento Grid */}
         <section id="features" className="py-24 bg-gray-950 relative">
@@ -153,6 +271,93 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <section className="py-24 bg-gray-950 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-transparent to-transparent"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white drop-shadow-md">What Our Users Say</h2>
+              <p className="text-gray-200 mt-2">Join thousands of women who trust SaviHer</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <p className="text-gray-200 text-lg mb-4">"{testimonial.quote}"</p>
+                  <div>
+                    <p className="text-white font-semibold">{testimonial.author}</p>
+                    <p className="text-gray-400">{testimonial.role}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tech Stack Section */}
+        <section className="py-24 bg-gray-950 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary-900/10 via-transparent to-transparent"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white drop-shadow-md">Built with Flutter</h2>
+              <p className="text-gray-200 mt-2">Cross-platform app for Android and iOS</p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-12 max-w-4xl mx-auto">
+              <motion.div
+                className="flex flex-col items-center gap-4 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <SiFlutter className="text-5xl text-blue-400" />
+                <span className="text-lg font-medium">Flutter</span>
+              </motion.div>
+              <motion.div
+                className="flex flex-col items-center gap-4 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <FaAndroid className="text-5xl text-green-500" />
+                <span className="text-lg font-medium">Android</span>
+              </motion.div>
+              <motion.div
+                className="flex flex-col items-center gap-4 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <FaApple className="text-5xl text-gray-400" />
+                <span className="text-lg font-medium">iOS</span>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-center mt-12"
+            >
+              <p className="text-gray-200 text-lg max-w-2xl mx-auto">
+                Built with Flutter for seamless performance across both Android and iOS platforms, 
+                ensuring a consistent and reliable experience for all users.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Animated Stats Section */}
         <section className="py-20 bg-gray-950 relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary-900/10 via-transparent to-transparent"></div>
@@ -192,6 +397,111 @@ export default function Home() {
           </div>
         </section>
 
+        {/* App Showcase Section */}
+        <section className="py-24 bg-gray-950 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-transparent to-transparent"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-4xl font-bold text-white drop-shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                Experience SaviHer
+              </motion.h2>
+              <motion.p 
+                className="text-gray-200 mt-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Beautiful, intuitive, and powerful - designed for your safety
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="relative group"
+                whileHover={{ y: -10 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <Image
+                  src="/images/app-screenshots/screen-3.jpg"
+                  alt="SaviHer App - Safety Features"
+                  width={300}
+                  height={600}
+                  className="rounded-2xl shadow-2xl relative z-10 transform group-hover:scale-105 transition-all duration-500 cursor-pointer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
+                  <p className="text-white text-sm font-medium">Safety Features</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative group"
+                whileHover={{ y: -10 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary-500/20 to-primary-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <Image
+                  src="/images/app-screenshots/screen-4.jpg"
+                  alt="SaviHer App - Community Features"
+                  width={300}
+                  height={600}
+                  className="rounded-2xl shadow-2xl relative z-10 transform group-hover:scale-105 transition-all duration-500 cursor-pointer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
+                  <p className="text-white text-sm font-medium">Community Features</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="relative group"
+                whileHover={{ y: -10 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <Image
+                  src="/images/app-screenshots/screen-5.jpg"
+                  alt="SaviHer App - Settings"
+                  width={300}
+                  height={600}
+                  className="rounded-2xl shadow-2xl relative z-10 transform group-hover:scale-105 transition-all duration-500 cursor-pointer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
+                  <p className="text-white text-sm font-medium">Settings & Preferences</p>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-center mt-12"
+            >
+              <p className="text-gray-200 text-lg max-w-2xl mx-auto">
+                Every screen is designed with your safety in mind. From quick SOS alerts to community features, 
+                SaviHer puts powerful protection at your fingertips.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-pink-600/80 to-rose-800/80 backdrop-blur-md relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent"></div>
@@ -208,14 +518,24 @@ export default function Home() {
               <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8 drop-shadow-sm">
                 Join thousands of women who trust SaviHer for their personal safety. Download now and experience the difference.
               </p>
-              <motion.a 
-                href="/download"
-                className="inline-block px-8 py-4 bg-white text-primary-900 font-semibold rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.a 
+                  href="/download"
+                  className="inline-block px-8 py-4 bg-white text-primary-900 font-semibold rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Download Now
+                </motion.a>
+                <motion.a 
+                  href="/features"
+                  className="inline-block px-8 py-4 text-white font-semibold rounded-full border border-white/20 hover:border-white/40 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Explore Features
+                </motion.a>
+              </div>
             </motion.div>
           </div>
         </section>
