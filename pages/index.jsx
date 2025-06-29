@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
-import MobileNav from "../components/MobileNav";
 import PhoneFrame from "../components/PhoneFrame";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -863,8 +862,6 @@ export default function Home() {
           </div>
         </section>
       </motion.main>
-
-      <MobileNav />
     </>
   );
 }
