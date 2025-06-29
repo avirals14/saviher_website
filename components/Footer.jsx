@@ -33,12 +33,10 @@ const Footer = () => {
             <Link href="/terms" className="text-neutral-600 hover:text-primary-600 transition-colors text-sm">
               Terms
             </Link>
-            <Link href="#contact" 
-                  className="text-neutral-600 hover:text-primary-600 transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}>
+            <Link href="#contact" className="text-neutral-600 hover:text-primary-600 transition-colors text-sm" onClick={e => {
+              e.preventDefault();
+              document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
               Contact
             </Link>
           </div>
