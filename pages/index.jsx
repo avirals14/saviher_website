@@ -9,6 +9,7 @@ import { SiFlutter } from 'react-icons/si';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import Lightbox from '../components/Lightbox';
 
 export default function Home() {
   const containerVariants = {
@@ -109,6 +110,15 @@ export default function Home() {
   }
 
   const [openIndex, setOpenIndex] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const screenshotImages = [
+    '/images/app-screenshots/screen-1.jpg',
+    '/images/app-screenshots/screen-2.jpg',
+    '/images/app-screenshots/screen-3.jpg',
+    '/images/app-screenshots/screen-4.jpg',
+    '/images/app-screenshots/screen-5.jpg',
+  ];
 
   return (
     <>
@@ -169,14 +179,8 @@ export default function Home() {
                 </motion.p>
                 <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
                   <a
-                    href="/download"
-                    className="bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition"
-                  >
-                    Get Started
-                  </a>
-                  <a
                     href="#features"
-                    className="text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:border-white/40 transition"
+                    className="bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition"
                   >
                     Learn More
                   </a>
@@ -300,29 +304,36 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* App Screenshots 3-top, 2-bottom Centered Layout */}
+            {/* App Screenshots Simple Grid with Lightbox */}
             <div className="mt-20">
               <h3 className="text-3xl font-bold text-white mb-8 text-center">App Screenshots</h3>
-              <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {/* Top row */}
-                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
-                  <Image src="/images/app-screenshots/screen-1.jpg" alt="App screenshot 1" fill className="object-contain" />
-                </div>
-                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
-                  <Image src="/images/app-screenshots/screen-2.jpg" alt="App screenshot 2" fill className="object-contain" />
-                </div>
-                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
-                  <Image src="/images/app-screenshots/screen-3.jpg" alt="App screenshot 3" fill className="object-contain" />
-                </div>
-                {/* Bottom row, centered */}
-                <div></div>
-                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black mt-8">
-                  <Image src="/images/app-screenshots/screen-4.jpg" alt="App screenshot 4" fill className="object-contain" />
-                </div>
-                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black mt-8">
-                  <Image src="/images/app-screenshots/screen-5.jpg" alt="App screenshot 5" fill className="object-contain" />
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {screenshotImages.map((img, index) => (
+                  <button
+                    key={img}
+                    className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-lg group focus:outline-none"
+                    onClick={() => { setLightboxOpen(true); setLightboxIndex(index); }}
+                    aria-label={`Open screenshot ${index + 1}`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`App screenshot ${index + 1}`}
+                      fill
+                      className="object-contain transition-transform duration-200 group-hover:scale-105 group-hover:shadow-2xl"
+                    />
+                  </button>
+                ))}
               </div>
+              {lightboxOpen && (
+                <Lightbox
+                  image={screenshotImages[lightboxIndex]}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={() => setLightboxIndex((lightboxIndex + 1) % screenshotImages.length)}
+                  onPrev={() => setLightboxIndex((lightboxIndex - 1 + screenshotImages.length) % screenshotImages.length)}
+                  totalImages={screenshotImages.length}
+                  currentIndex={lightboxIndex}
+                />
+              )}
             </div>
           </div>
         </section>
