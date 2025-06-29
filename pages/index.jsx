@@ -84,7 +84,6 @@ export default function Home() {
       answer:
         "You can add trusted contacts through the app by entering their phone numbers or email addresses.",
     },
-    
   ];
 
   // FAQItem component
@@ -124,6 +123,9 @@ export default function Home() {
     "/images/app-screenshots/screen-4.jpg",
     "/images/app-screenshots/screen-5.jpg",
   ];
+
+  // Add state for contact form status
+  const [contactStatus, setContactStatus] = useState(""); // "", "SUCCESS", "ERROR"
 
   return (
     <>
@@ -355,7 +357,8 @@ export default function Home() {
                   Volunteer Support
                 </h3>
                 <p className="text-gray-200 mt-3">
-                Alerts nearby verified volunteers during emergencies for faster, community-driven help.
+                  Alerts nearby verified volunteers during emergencies for
+                  faster, community-driven help.
                 </p>
               </motion.div>
 
@@ -368,7 +371,8 @@ export default function Home() {
                   Real-time Image Capturing
                 </h3>
                 <p className="text-gray-200 mt-3">
-                Instantly captures and processes photos within the app with no delay.
+                  Instantly captures and processes photos within the app with no
+                  delay.
                 </p>
               </motion.div>
 
@@ -381,7 +385,8 @@ export default function Home() {
                   Privacy & Security
                 </h3>
                 <p className="text-gray-200 mt-3">
-                Your data is encrypted and protected — your privacy is our top priority.
+                  Your data is encrypted and protected — your privacy is our top
+                  priority.
                 </p>
               </motion.div>
             </motion.div>
@@ -464,8 +469,8 @@ export default function Home() {
                   feels alone.
                   <br />
                   <br />
-                  Together, we&apos;re building a future where women uplift, protect,
-                  and inspire each other—everywhere, every day.
+                  Together, we&apos;re building a future where women uplift,
+                  protect, and inspire each other—everywhere, every day.
                 </p>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
@@ -598,8 +603,8 @@ export default function Home() {
                 Contact Us
               </h2>
               <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-                Get in touch with our team. We&apos;re here to help and answer any
-                questions you may have.
+                Get in touch with our team. We&apos;re here to help and answer
+                any questions you may have.
               </p>
             </div>
 
@@ -609,7 +614,25 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Send us a Message
                 </h3>
-                <form className="space-y-6">
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const form = e.target;
+                    const data = new FormData(form);
+                    const res = await fetch("https://formspree.io/f/xldnzdrg", {
+                      method: "POST",
+                      body: data,
+                      headers: { Accept: "application/json" },
+                    });
+                    if (res.ok) {
+                      setContactStatus("SUCCESS");
+                      form.reset();
+                    } else {
+                      setContactStatus("ERROR");
+                    }
+                  }}
+                  className="space-y-6"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label
@@ -698,6 +721,12 @@ export default function Home() {
                   >
                     Send Message
                   </button>
+                  {contactStatus === "SUCCESS" && (
+                    <p className="text-green-500 mt-4">Thank you! Your message has been sent.</p>
+                  )}
+                  {contactStatus === "ERROR" && (
+                    <p className="text-red-500 mt-4">Oops! Something went wrong. Please try again.</p>
+                  )}
                 </form>
               </div>
 
@@ -812,7 +841,6 @@ export default function Home() {
                     Follow Us
                   </h4>
                   <div className="flex space-x-4">
-                    
                     <a
                       href="https://youtube.com/shorts/1uPyI5csEHc?si=kGO1tmXwf0cdcjZw"
                       target="_blank"
