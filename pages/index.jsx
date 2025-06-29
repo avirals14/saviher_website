@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import MobileNav from '../components/MobileNav';
+import PhoneFrame from '../components/PhoneFrame';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaShieldAlt, FaBell, FaUsers, FaCamera, FaMapMarkerAlt, FaMobileAlt, FaArrowRight, FaReact, FaPython, FaAndroid, FaApple, FaServer } from 'react-icons/fa';
@@ -73,7 +74,7 @@ export default function Home() {
       >
         {/* Hero Section */}
         <motion.section
-          className="min-h-screen flex items-center justify-center text-center relative bg-gray-950"
+          className="min-h-[80vh] flex items-center relative bg-gray-950"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
@@ -82,104 +83,71 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-950 z-10"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent z-0"></div>
           
-          <div className="z-20">
-            <div className="mb-8 mt-12">
-              <Image
-                src="/images/logos/logo.png"
-                alt="SaviHer Logo"
-                width={200}
-                height={67}
-                className="mx-auto"
-                priority
-              />
-            </div>
-            <motion.h1 
-              className="text-5xl md:text-7xl font-black uppercase text-white drop-shadow-lg"
-            >
-              Your Safety,
-              <br />
-              <span className="bg-gradient-to-r from-primary-400 to-secondary-400 text-transparent bg-clip-text drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                Reimagined.
-              </span>
-            </motion.h1>
-            <motion.p 
-              className="mt-4 text-lg text-gray-100 max-w-xl mx-auto drop-shadow-md"
-            >
-              Experience the next generation of personal safety. One tap to alert trusted contacts, shake to trigger SOS, and connect with a community of verified helpers.
-            </motion.p>
-            <motion.div
-              className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            >
-              <motion.a 
-                href="/download" 
-                className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-primary-500/50"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.a>
-              <motion.a 
-                href="#features" 
-                className="text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.a>
-            </motion.div>
-            <motion.div
-              className="mt-12 relative"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="relative w-full max-w-4xl mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 blur-3xl rounded-full animate-pulse"></div>
-                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
-                  <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    className="relative group"
-                    whileHover={{ scale: 1.05, rotate: 0 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-secondary-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <Image
-                      src="/images/app-screenshots/screen-1.jpg"
-                      alt="SaviHer App Interface - Home Screen"
-                      width={300}
-                      height={600}
-                      className="rounded-2xl shadow-2xl transform -rotate-6 group-hover:rotate-0 transition-all duration-500 cursor-pointer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
-                      <p className="text-white text-sm font-medium">Features Overview</p>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-                    className="relative group"
-                    whileHover={{ scale: 1.05, rotate: 0 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-secondary-500/30 to-primary-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <Image
-                      src="/images/app-screenshots/screen-2.jpg"
-                      alt="SaviHer App Interface - Features"
-                      width={300}
-                      height={600}
-                      className="rounded-2xl shadow-2xl transform rotate-6 group-hover:rotate-0 transition-all duration-500 cursor-pointer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center p-4">
-                      <p className="text-white text-sm font-medium">Home Screen</p>
-                    </div>
-                  </motion.div>
+          <div className="container mx-auto px-12 relative z-20 py-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Content */}
+              <div className="flex flex-col justify-center">
+                <div className="mb-6">
+                  <Image
+                    src="/images/logos/logo.png"
+                    alt="SaviHer Logo"
+                    width={160}
+                    height={54}
+                    priority
+                  />
                 </div>
+                <motion.h1 
+                  className="text-4xl md:text-6xl font-black uppercase text-white drop-shadow-lg text-left"
+                >
+                  Your Safety,
+                  <br />
+                  <span className="bg-gradient-to-r from-primary-400 to-secondary-400 text-transparent bg-clip-text drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    Reimagined.
+                  </span>
+                </motion.h1>
+                <motion.p 
+                  className="mt-3 text-base text-gray-100 max-w-lg drop-shadow-md text-left"
+                >
+                  Experience the next generation of personal safety. One tap to alert trusted contacts, shake to trigger SOS, and connect with a community of verified helpers.
+                </motion.p>
+                <motion.div
+                  className="mt-6 flex flex-col sm:flex-row items-start gap-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                >
+                  <motion.a 
+                    href="/download" 
+                    className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-primary-500/50"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Get Started
+                  </motion.a>
+                  <motion.a 
+                    href="#features" 
+                    className="text-white font-semibold px-6 py-3 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Learn More
+                  </motion.a>
+                </motion.div>
               </div>
-            </motion.div>
+
+              {/* Right Illustration (Women) */}
+              <div className="flex justify-center lg:justify-end items-center">
+                <Image
+                  src="/images/hero-women.png"
+                  alt="Empowered Women Illustration"
+                  width={480}
+                  height={540}
+                  className="object-contain drop-shadow-xl lg:ml-8"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </motion.section>
 
