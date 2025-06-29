@@ -73,7 +73,7 @@ export default function FAQ() {
     <>
       <Head>
         <title>FAQ - SaviHer</title>
-        <meta name="description" content="Frequently asked questions about SaviHer's safety features and services." />
+        <meta name="description" content="Frequently asked questions about SaviHer&apos;s safety features and services." />
       </Head>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-b from-primary-50 to-white">
@@ -122,7 +122,7 @@ export default function FAQ() {
             className="mt-12 text-center"
           >
             <p className="text-gray-600 mb-4">
-              Still have questions? We're here to help.
+              Still have questions? We&apos;re here to help.
             </p>
             <a
               href="/contact"

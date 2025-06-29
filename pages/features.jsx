@@ -23,7 +23,7 @@ export default function Features() {
     <>
       <Head>
         <title>Features - SaviHer</title>
-        <meta name="description" content="Discover SaviHer's powerful safety features designed to protect women everywhere." />
+        <meta name="description" content="Discover SaviHer&apos;s powerful safety features designed to protect women everywhere." />
       </Head>
 
       <main className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
@@ -61,7 +61,7 @@ export default function Features() {
               </DetailFeature>
 
               <DetailFeature icon={<FaCamera size={30}/>} title="Real-Time Image Capturing">
-                Instantly take a photo using your device's camera and immediately process or use that image within the app without delay. 
+                Instantly take a photo using your device&apos;s camera and immediately process or use that image within the app without delay. 
                 This can be crucial for evidence or identification.
               </DetailFeature>
 
@@ -77,7 +77,7 @@ export default function Features() {
 
               <DetailFeature icon={<FaMobileAlt size={30}/>} title="Shake Detection">
                 Simply shake your phone to activate an emergency alert, notifying contacts and sharing your real-time location instantly. 
-                This is a discreet and quick way to call for help when you can't use the screen.
+                This is a discreet and quick way to call for help when you can&apos;t use the screen.
               </DetailFeature>
             </div>
           </div>

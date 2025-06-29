@@ -84,7 +84,7 @@ export default function About() {
                   At SaviHer, we believe that every woman deserves to feel safe and secure. Our mission is to leverage technology to create a safer world for women, providing them with the tools and support they need to navigate their daily lives with confidence.
                 </p>
                 <p className="text-gray-600">
-                  Through our innovative app, we're building a community of empowered women who support and protect each other, making safety accessible to all.
+                  Through our innovative app, we&apos;re building a community of empowered women who support and protect each other, making safety accessible to all.
                 </p>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">

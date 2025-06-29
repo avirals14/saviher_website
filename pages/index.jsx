@@ -465,7 +465,7 @@ export default function Home() {
                   feels alone.
                   <br />
                   <br />
-                  Together, we're building a future where women uplift, protect,
+                  Together, we&apos;re building a future where women uplift, protect,
                   and inspire each other—everywhere, every day.
                 </p>
               </div>
@@ -599,7 +599,7 @@ export default function Home() {
                 Contact Us
               </h2>
               <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-                Get in touch with our team. We're here to help and answer any
+                Get in touch with our team. We&apos;re here to help and answer any
                 questions you may have.
               </p>
             </div>
@@ -709,7 +709,7 @@ export default function Home() {
                     Get in Touch
                   </h3>
                   <p className="text-gray-300 mb-8">
-                    We're committed to providing the best support for our
+                    We&apos;re committed to providing the best support for our
                     community. Reach out to us through any of these channels.
                   </p>
                 </div>

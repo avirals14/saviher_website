@@ -69,7 +69,7 @@ export default function Terms() {
     <>
       <Head>
         <title>Terms of Service - SaviHer</title>
-        <meta name="description" content="Read SaviHer's terms of service and user agreement." />
+        <meta name="description" content="Read SaviHer&apos;s terms of service and user agreement." />
       </Head>
 
       <Navbar />
