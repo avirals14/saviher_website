@@ -300,20 +300,28 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* App Screenshots Grid (restored) */}
+            {/* App Screenshots 3-top, 2-bottom Centered Layout */}
             <div className="mt-20">
               <h3 className="text-3xl font-bold text-white mb-8 text-center">App Screenshots</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {[1,2,3,4,5].map((index) => (
-                  <div key={index} className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <Image
-                      src={`/images/app-screenshots/screen-${index}.jpg`}
-                      alt={`App screenshot ${index}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+              <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {/* Top row */}
+                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
+                  <Image src="/images/app-screenshots/screen-1.jpg" alt="App screenshot 1" fill className="object-contain" />
+                </div>
+                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
+                  <Image src="/images/app-screenshots/screen-2.jpg" alt="App screenshot 2" fill className="object-contain" />
+                </div>
+                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black col-span-1">
+                  <Image src="/images/app-screenshots/screen-3.jpg" alt="App screenshot 3" fill className="object-contain" />
+                </div>
+                {/* Bottom row, centered */}
+                <div></div>
+                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black mt-8">
+                  <Image src="/images/app-screenshots/screen-4.jpg" alt="App screenshot 4" fill className="object-contain" />
+                </div>
+                <div className="relative w-72 aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black mt-8">
+                  <Image src="/images/app-screenshots/screen-5.jpg" alt="App screenshot 5" fill className="object-contain" />
+                </div>
               </div>
             </div>
           </div>
