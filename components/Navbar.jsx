@@ -10,7 +10,7 @@ const mainNavItems = [
   { name: 'Features', href: '/features' },
   { name: 'About', href: '/about' },
   { name: 'Resources', href: '/resources' },
-  { name: 'Blog', href: '/blog' },
+  // { name: 'Blog', href: '/blog' },
 ];
 
 const secondaryNavItems = [

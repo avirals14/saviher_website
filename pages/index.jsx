@@ -74,76 +74,60 @@ export default function Home() {
       >
         {/* Hero Section */}
         <motion.section
-          className="min-h-[80vh] flex items-center relative bg-gray-950"
+          className="min-h-[80vh] flex items-center bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <div className="absolute inset-0 bg-grid-pattern opacity-5 z-0"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-950 z-10"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent z-0"></div>
-          
-          <div className="container mx-auto px-12 relative z-20 py-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <div className="flex flex-col justify-center">
-                <div className="mb-6">
+          <div className="container mx-auto px-12 py-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
+              {/* Left: Text Content */}
+              <div className="flex flex-col justify-center h-full items-center text-center">
+                <div className="mb-8 flex justify-center w-full">
                   <Image
                     src="/images/logos/logo.png"
                     alt="SaviHer Logo"
-                    width={160}
-                    height={54}
+                    width={180}
+                    height={60}
                     priority
                   />
                 </div>
-                <motion.h1 
-                  className="text-4xl md:text-6xl font-black uppercase text-white drop-shadow-lg text-left"
-                >
-                  Your Safety,
-                  <br />
-                  <span className="bg-gradient-to-r from-primary-400 to-secondary-400 text-transparent bg-clip-text drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                <motion.h1 className="text-5xl md:text-7xl font-black uppercase text-white drop-shadow-lg leading-tight">
+                  Your Safety,<br />
+                  <span className="bg-gradient-to-r from-pink-400 to-fuchsia-400 text-transparent bg-clip-text">
                     Reimagined.
                   </span>
                 </motion.h1>
-                <motion.p 
-                  className="mt-3 text-base text-gray-100 max-w-lg drop-shadow-md text-left"
-                >
+                <motion.p className="mt-6 text-lg text-gray-200 max-w-xl drop-shadow-md">
                   Experience the next generation of personal safety. One tap to alert trusted contacts, shake to trigger SOS, and connect with a community of verified helpers.
                 </motion.p>
-                <motion.div
-                  className="mt-6 flex flex-col sm:flex-row items-start gap-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                >
-                  <motion.a 
-                    href="/download" 
-                    className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-primary-500/50"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+                  <a
+                    href="/download"
+                    className="bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition"
                   >
                     Get Started
-                  </motion.a>
-                  <motion.a 
-                    href="#features" 
-                    className="text-white font-semibold px-6 py-3 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  </a>
+                  <a
+                    href="#features"
+                    className="text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:border-white/40 transition"
                   >
                     Learn More
-                  </motion.a>
-                </motion.div>
+                  </a>
+                </div>
               </div>
 
-              {/* Right Illustration (Women) */}
-              <div className="flex justify-center lg:justify-end items-center">
+              {/* Right: Illustration Only */}
+              <div className="flex justify-center items-center h-full relative">
+                {/* Decorative Glow */}
+                <div className="absolute -z-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                {/* Women's Illustration */}
                 <Image
                   src="/images/hero-women.png"
                   alt="Empowered Women Illustration"
-                  width={480}
-                  height={540}
-                  className="object-contain drop-shadow-xl lg:ml-8"
-                  style={{ maxWidth: '100%', height: 'auto' }}
+                  width={500}
+                  height={600}
+                  className="object-contain drop-shadow-2xl z-10"
                   priority
                 />
               </div>
@@ -180,106 +164,77 @@ export default function Home() {
         </section>
 
         {/* Features Bento Grid */}
-        <section id="features" className="py-24 bg-gray-950 relative">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-transparent to-transparent"></div>
-          <div className="container mx-auto px-6 relative">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white drop-shadow-md">The SaviHer Toolkit</h2>
-              <p className="text-gray-200 mt-2">A suite of features designed for modern life.</p>
+        <section id="features" className="py-28 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
+          {/* Decorative Gradient Behind Heading */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[180px] bg-gradient-to-r from-pink-400/20 via-fuchsia-400/10 to-pink-400/20 blur-2xl rounded-full z-0"></div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center mb-16 relative">
+              <h2 className="text-5xl font-extrabold text-white drop-shadow-lg mb-4">The SaviHer Toolkit</h2>
+              <p className="text-gray-200 text-lg max-w-2xl mx-auto">A suite of features designed for modern life.</p>
             </div>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={containerVariants}
             >
               <motion.div 
-                className="md:col-span-2 p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 flex flex-col justify-between hover:border-primary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
-                whileHover={{ y: -5 }}
+                className="p-10 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-pink-400/20 shadow-2xl hover:border-pink-400/40 hover:bg-gray-900/80 transition-all duration-300 group flex flex-col justify-between"
+                whileHover={{ y: -8 }}
               >
                 <div>
-                  <FaBell className="text-primary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="text-2xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300">Instant SOS Alerts</h3>
-                  <p className="text-gray-200 mt-2">One tap. Multiple contacts notified. Your location, shared instantly. It's safety, simplified.</p>
+                  <FaBell className="text-pink-400 text-4xl mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">Instant SOS Alerts</h3>
+                  <p className="text-gray-200 mt-3">One tap. Multiple contacts notified. Your location, shared instantly. It's safety, simplified.</p>
                 </div>
-                <div className="mt-4 text-primary-400 font-semibold hover:text-primary-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
+                <div className="mt-6 text-pink-400 font-semibold hover:text-pink-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
                   Learn More <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
               </motion.div>
 
               <motion.div 
-                className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 hover:border-secondary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
-                whileHover={{ y: -5 }}
+                className="p-10 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-fuchsia-400/20 shadow-2xl hover:border-fuchsia-400/40 hover:bg-gray-900/80 transition-all duration-300 group flex flex-col justify-between"
+                whileHover={{ y: -8 }}
               >
-                <FaMobileAlt className="text-secondary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-2xl font-bold text-white group-hover:text-secondary-300 transition-colors duration-300">Shake Detection</h3>
-                <p className="text-gray-200 mt-1">Discreetly trigger an alert by simply shaking your phone.</p>
+                <FaMobileAlt className="text-fuchsia-400 text-4xl mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white group-hover:text-fuchsia-300 transition-colors duration-300">Shake Detection</h3>
+                <p className="text-gray-200 mt-3">Discreetly trigger an alert by simply shaking your phone.</p>
               </motion.div>
 
               <motion.div 
-                className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 hover:border-primary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
-                whileHover={{ y: -5 }}
+                className="p-10 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-pink-400/20 shadow-2xl hover:border-pink-400/40 hover:bg-gray-900/80 transition-all duration-300 group flex flex-col justify-between"
+                whileHover={{ y: -8 }}
               >
-                <FaMapMarkerAlt className="text-primary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-2xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300">Safe Zones</h3>
-                <p className="text-gray-200 mt-1">Create geofenced areas and get notified automatically.</p>
+                <FaMapMarkerAlt className="text-pink-400 text-4xl mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">Safe Zones</h3>
+                <p className="text-gray-200 mt-3">Create geofenced areas and get notified automatically.</p>
               </motion.div>
 
               <motion.div 
-                className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 hover:border-secondary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
-                whileHover={{ y: -5 }}
+                className="p-10 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-fuchsia-400/20 shadow-2xl hover:border-fuchsia-400/40 hover:bg-gray-900/80 transition-all duration-300 group flex flex-col justify-between"
+                whileHover={{ y: -8 }}
               >
-                <FaUsers className="text-secondary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-2xl font-bold text-white group-hover:text-secondary-300 transition-colors duration-300">Community Support</h3>
-                <p className="text-gray-200 mt-1">Connect with verified helpers in your vicinity.</p>
+                <FaUsers className="text-fuchsia-400 text-4xl mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white group-hover:text-fuchsia-300 transition-colors duration-300">Community Support</h3>
+                <p className="text-gray-200 mt-3">Connect with verified helpers in your vicinity.</p>
               </motion.div>
 
               <motion.div 
-                className="md:col-span-2 p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50 flex flex-col justify-between hover:border-primary-500/50 hover:bg-gray-900/60 transition-all duration-300 group"
-                whileHover={{ y: -5 }}
+                className="md:col-span-2 p-10 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-pink-400/20 shadow-2xl hover:border-pink-400/40 hover:bg-gray-900/80 transition-all duration-300 group flex flex-col justify-between"
+                whileHover={{ y: -8 }}
               >
                 <div>
-                  <FaShieldAlt className="text-primary-400 text-3xl mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="text-2xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300">Privacy & Security</h3>
-                  <p className="text-gray-200 mt-2">Your data is encrypted and your privacy is our priority. Feel safe knowing your information is protected.</p>
+                  <FaShieldAlt className="text-pink-400 text-4xl mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">Privacy & Security</h3>
+                  <p className="text-gray-200 mt-3">Your data is encrypted and your privacy is our priority. Feel safe knowing your information is protected.</p>
                 </div>
-                <div className="mt-4 text-primary-400 font-semibold hover:text-primary-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
+                <div className="mt-6 text-pink-400 font-semibold hover:text-pink-300 transition-colors duration-300 flex items-center gap-2 group-hover:gap-3">
                   Learn More <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
               </motion.div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-24 bg-gray-950 relative">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-transparent to-transparent"></div>
-          <div className="container mx-auto px-6 relative">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white drop-shadow-md">What Our Users Say</h2>
-              <p className="text-gray-200 mt-2">Join thousands of women who trust SaviHer</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  className="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-800/50"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <p className="text-gray-200 text-lg mb-4">"{testimonial.quote}"</p>
-                  <div>
-                    <p className="text-white font-semibold">{testimonial.author}</p>
-                    <p className="text-gray-400">{testimonial.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
