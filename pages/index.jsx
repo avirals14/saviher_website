@@ -181,6 +181,10 @@ export default function Home() {
                   <a
                     href="#features"
                     className="bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition"
+                    onClick={e => {
+                      e.preventDefault();
+                      document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     Learn More
                   </a>

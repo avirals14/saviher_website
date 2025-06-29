@@ -9,7 +9,6 @@ const mainNavItems = [
   { name: 'Home', href: '#home' },
   { name: 'Features', href: '#features' },
   { name: 'About', href: '#about' },
-  { name: 'Resources', href: '#resources' },
   { name: 'Contact', href: '#contact' },
   { name: 'FAQ', href: '#faq' },
 ];
