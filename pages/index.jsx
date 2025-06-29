@@ -300,10 +300,21 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Screenshots Grid replaced with PhoneFrame Slideshow */}
-            <div className="mt-20 flex flex-col items-center">
+            {/* App Screenshots Grid (restored) */}
+            <div className="mt-20">
               <h3 className="text-3xl font-bold text-white mb-8 text-center">App Screenshots</h3>
-              <PhoneSlideshow />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {[1,2,3,4,5].map((index) => (
+                  <div key={index} className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <Image
+                      src={`/images/app-screenshots/screen-${index}.jpg`}
+                      alt={`App screenshot ${index}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -501,7 +512,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">Office</h4>
-                      <p className="text-gray-300">B-156 Anand Vihar Railway Colony Jagatpura<br />Jaipur, Rajasthan</p>
+                      <p className="text-gray-300">B-156 Anand Vihar Railway Colony Jagatpura<br />Jaipur, 302017</p>
                       <p className="text-gray-400 text-sm">By appointment only</p>
                     </div>
                   </div>
@@ -511,9 +522,14 @@ export default function Home() {
                 <div className="pt-6 border-t border-gray-800">
                   <h4 className="text-lg font-semibold text-white mb-4">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-500 transition-colors duration-200">
+                    <a href="#" target='_blank' className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-500 transition-colors duration-200">
                       <svg className="w-5 h-5 text-gray-300 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@saviher" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-500 transition-colors duration-200">
+                      <svg className="w-5 h-5 text-gray-300 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.24 3.5 12 3.5 12 3.5s-7.24 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.338 0 12 0 12s0 3.662.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.76 20.5 12 20.5 12 20.5s7.24 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.662 24 12 24 12s0-3.662-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                       </svg>
                     </a>
                   </div>
@@ -547,44 +563,5 @@ export default function Home() {
 
       <MobileNav />
     </>
-  );
-}
-
-function PhoneSlideshow() {
-  const screenshots = [
-    '/images/app-screenshots/screen-1.jpg',
-    '/images/app-screenshots/screen-2.jpg',
-    '/images/app-screenshots/screen-3.jpg',
-    '/images/app-screenshots/screen-4.jpg',
-    '/images/app-screenshots/screen-5.jpg',
-  ];
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % screenshots.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [screenshots.length]);
-
-  const prev = () => setIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
-  const next = () => setIndex((prev) => (prev + 1) % screenshots.length);
-
-  return (
-    <div className="flex flex-col items-center">
-      <div className="mb-4">
-        <PhoneFrame screenshot={screenshots[index]} alt={`App screenshot ${index + 1}`} />
-      </div>
-      <div className="flex space-x-2 mt-2">
-        {screenshots.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-3 h-3 rounded-full border-2 border-pink-400 focus:outline-none transition-all duration-200 ${index === i ? 'bg-pink-500' : 'bg-white/30'}`}
-            aria-label={`Go to screenshot ${i + 1}`}
-          />
-        ))}
-      </div>
-    </div>
   );
 }
