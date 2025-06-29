@@ -56,16 +56,6 @@ const Footer = () => {
                   Features
                 </Link>
               </li>
-              <li>
-                <Link href="/resources" className="text-neutral-600 hover:text-primary-600 transition-colors">
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-neutral-600 hover:text-primary-600 transition-colors">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -97,25 +87,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-semibold text-neutral-800 mb-4">Stay Updated</h3>
-            <p className="text-neutral-600 mb-4">
-              Subscribe to our newsletter for the latest updates and safety tips.
-            </p>
-            <form className="space-y-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 rounded-lg border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              />
-              <button
-                type="submit"
-                className="w-full px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
+    
         </div>
 
         {/* Bottom Bar */}
