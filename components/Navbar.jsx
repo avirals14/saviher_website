@@ -76,7 +76,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-start items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="relative h-12 w-auto">
@@ -90,90 +90,8 @@ const Navbar = () => {
               />
             </div>
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {mainNavItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`relative text-neutral-700 hover:text-primary-600 transition-colors font-medium group ${
-                  router.pathname === item.href ? 'text-primary-600' : ''
-                }`}
-              >
-                {item.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full ${
-                  router.pathname === item.href ? 'w-full' : ''
-                }`} />
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/download"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download App
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-neutral-700 hover:text-primary-600 hover:bg-primary-50 focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-primary-100"
-          >
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              {mainNavItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    router.pathname === item.href
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 pb-2">
-                <Link
-                  href="/download"
-                  className="flex items-center justify-center w-full px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download App
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
