@@ -58,19 +58,22 @@ const Navbar = () => {
   };
 
   const handleSmoothScroll = (href) => {
-    setIsMenuOpen(false);
-    
     if (href.startsWith('#')) {
-      // Smooth scroll to section on same page
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
+      setIsMenuOpen(false);
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const navbar = document.querySelector('nav');
+          const navbarHeight = navbar ? navbar.offsetHeight : 0;
+          const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementTop - navbarHeight - 8,
+            behavior: 'smooth',
+          });
+        }
+      }, 400);
     } else {
-      // Navigate to different page
+      setIsMenuOpen(false);
       router.push(href);
     }
   };
